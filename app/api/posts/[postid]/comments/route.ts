@@ -16,6 +16,8 @@ export const GET = async (
     });
     return NextResponse.json(comments);
   } catch (error) {
+    console.log(error);
+    
     return NextResponse.json({ error: "an error occurred." });
   }
 };

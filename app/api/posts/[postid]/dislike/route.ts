@@ -12,6 +12,7 @@ export const POST = async (req:NextRequest, {params}:{params:{postid:string}}) =
         await post.updateOne({$pull:{likes:userId}});
         return NextResponse.json({message:"Post disliked successfully."});
     } catch (error:any) {
+        console.log(error);
         return NextResponse.json({error:'An error occurred.'});
     }
 }
