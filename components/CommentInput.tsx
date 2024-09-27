@@ -7,12 +7,12 @@ import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { createCommentAction } from '@/lib/serveractions'
 
-const CommentInput = ({postId}:{postId:string}) => {
+const CommentInput = ({postid}:{postid:string}) => {
     const {user} = useUser();
     const commentActionHandler = async (formData:FormData) => {
        try {
          if(!user) throw new Error('user not authenticated');
-         await createCommentAction(postId,formData);
+         await createCommentAction(postid,formData);
        } catch (error) {
         console.log(error);
         
