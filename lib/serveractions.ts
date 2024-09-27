@@ -120,6 +120,7 @@ export const createCommentAction = async (postId:string, formData:FormData) => {
     await post.save();
     revalidatePath("/");
   } catch (error) {
+    console.log(error)
     throw new Error('An Error Occured');
   }
 

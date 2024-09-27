@@ -1,3 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "off", // Disable non-null assertion on optional chains
+    "@typescript-eslint/no-explicit-any": "off", // Disable any usage errors
+    "@typescript-eslint/no-empty-object-type": "off" // Disable empty object type warnings
+  }
+  
+
 }

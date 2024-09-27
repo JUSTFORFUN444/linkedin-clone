@@ -3,12 +3,12 @@ import React from 'react'
 import { ICommentDocument } from '@/models/comment.model';
 import ProfilePhoto from './shared/ProfilePhoto';
 import ReactTimeago from 'react-timeago';
-
+//bug fixes lint errors
 const Comment = ({comment}:{comment:ICommentDocument}) => {
   return (
     <div className='flex gap-2 my-4'>
       <div className='mt-2'>
-      <ProfilePhoto src={comment?.user?.profilePhoto!} />
+      {comment?.user?.profilePhoto && <ProfilePhoto src={comment?.user?.profilePhoto!} />}
       </div>
      <div className='flex flex-1 justify-between p-3 bg-[#F2F2F2]'>
       <div>

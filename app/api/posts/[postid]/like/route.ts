@@ -1,7 +1,7 @@
 import connectDB from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
 import { Post } from '@/models/post.model';
-import { error } from "console";
+
 // get likes
 export const GET = async (_req:NextRequest,{params}: {params:{postid:string}}) => {
 try {
@@ -9,7 +9,8 @@ try {
     const post = await Post.findById({_id:params.postid});
     if(!post) return NextResponse.json({error:'post not found.'});
     return NextResponse.json(post.likes);
-} catch (error:any) {
+} catch (error) {
+    console.log(error);
     return NextResponse.json({error:'An error occurred.'});
 }
 }
@@ -22,7 +23,9 @@ export const POST = async (req:NextRequest, {params}:{params:{postid:string}}) =
         if(!post) return NextResponse.json({error:'Post not found.'});
         await post.updateOne({$addToSet:{likes:userId}});
         return NextResponse.json({message:"Post liked successfully."});
-    } catch (error:any) {
+    } catch (error) {
+        console.log(error);
+        
         return NextResponse.json({error:'An error occurred.'});
     }
 }

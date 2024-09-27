@@ -38,10 +38,11 @@ const Post = ({ post }: { post: IPostDocument }) => {
           </div>
         </div>
         <div>
+          {/* changes here */}
           {loggedInUser && (
             <Button
-              onClick={() => {
-                const res = deletePostAction(post._id);
+              onClick={async () => {
+                await  deletePostAction(post._id);
               }}
               size={"icon"}
               className="rounded-full"

@@ -4,10 +4,14 @@ import News from "@/components/News";
 import Sidebar from "./../components/Sidebar";
 
 import { currentUser } from "@clerk/nextjs/server";
+import { IUser } from "@/models/user.model";
 
 
 export default async function Home() {
   const user = await currentUser();
+// Check if user is null and handle accordingly
+const userData: IUser | null = user ? JSON.parse(JSON.stringify(user)) : null;
+
   // console.log(user);
   return (
     <div className="pt-20">
@@ -15,7 +19,7 @@ export default async function Home() {
         {/* sidebar */}
         <Sidebar user = {user}/>
         {/* feed  */}
-        <Feed   user = {user}/>
+        <Feed   user = {userData}/>
         {/* news */}
         <News />
       </div>
