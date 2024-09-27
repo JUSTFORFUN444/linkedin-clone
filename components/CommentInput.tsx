@@ -19,6 +19,7 @@ const CommentInput = ({postId}:{postId:string}) => {
          throw new Error('An error occured')
        }
     }
+    //handeling bug
   return (
     <form action={(formData)=> commentActionHandler(formData)}>
      <div className='flex items-center gap-2'>
